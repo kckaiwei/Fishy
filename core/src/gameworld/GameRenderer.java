@@ -44,6 +44,8 @@ public class GameRenderer {
 
     private Animation fishAnimation;
     private Animation fishAnimationLeft;
+    private Animation enemyfishAnimation;
+    private Animation enemyfishAnimationLeft;
     private TextureRegion fishRegion;
 
     private int midPointX;
@@ -118,6 +120,8 @@ public class GameRenderer {
     private void initAssets() {
         fishAnimation = AssetLoader.fishAnimation;
         fishAnimationLeft = AssetLoader.fishAnimationFaceLeft;
+        enemyfishAnimation = AssetLoader.enemyfishAnimation;
+        enemyfishAnimationLeft = AssetLoader.enemyfishAnimationFaceLeft;
 
     }
 
@@ -225,11 +229,11 @@ public class GameRenderer {
     private void drawEnemyFish(float runTime){
         for (int i=0; i<10; i++){
             if (!enemies[i].isFacingLeft()){
-                batcher.draw(fishAnimation.getKeyFrame(runTime), enemies[i].getX(), enemies[i].getY(), enemies[i].getWidth(), enemies[i].getHeight());
+                batcher.draw(enemyfishAnimation.getKeyFrame(runTime), enemies[i].getX(), enemies[i].getY(), enemies[i].getWidth(), enemies[i].getHeight());
 
             }
             if (enemies[i].isFacingLeft()){
-                batcher.draw(fishAnimationLeft.getKeyFrame(runTime), enemies[i].getX(), enemies[i].getY(), enemies[i].getWidth(), enemies[i].getHeight());
+                batcher.draw(enemyfishAnimationLeft.getKeyFrame(runTime), enemies[i].getX(), enemies[i].getY(), enemies[i].getWidth(), enemies[i].getHeight());
             }
         }
 

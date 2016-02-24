@@ -16,7 +16,7 @@ public class AssetLoader {
 
     private boolean facingLeft;
 
-    public static Texture texture;
+    public static Texture texture, texture2;
     public static Texture mainScreenTexture;
     public static TextureRegion bg, grass;
     public static TextureRegion playButtonUp, playButtonDown, logoTR, title, creditsButtonUp, creditsButtonDown;
@@ -25,9 +25,15 @@ public class AssetLoader {
 
     public static Animation fishAnimation;
     public static Animation fishAnimationFaceLeft;
+
+    public static Animation enemyfishAnimation;
+    public static Animation enemyfishAnimationFaceLeft;
+
     public static TextureRegion playerFish, playerFish2, playerFish3, playerFish4;
+    public static TextureRegion enemyFish, enemyFish2, enemyFish3, enemyFish4;
 
     public static TextureRegion playerFishLeft, playerFish2Left, playerFish3Left, playerFish4Left;
+    public static TextureRegion enemyFishLeft, enemyFish2Left, enemyFish3Left, enemyFish4Left;
 
     public static Sound dead;
 
@@ -67,7 +73,7 @@ public class AssetLoader {
 
         //fish textures
 
-        texture = new Texture(Gdx.files.internal("data/fish.png"));
+        texture = new Texture(Gdx.files.internal("data/fish1.png"));
         texture.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
 
         playerFish = new TextureRegion(texture, 26, 87, 207, 85);
@@ -103,6 +109,49 @@ public class AssetLoader {
         TextureRegion[] fishesLeft = {playerFishLeft, playerFish2Left, playerFish3Left, playerFish4Left};
         fishAnimationFaceLeft = new Animation(0.06f, fishesLeft);
         fishAnimationFaceLeft.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
+
+        //Enemy FISH
+
+        //fish textures
+
+        texture2 = new Texture(Gdx.files.internal("data/fish2.png"));
+        texture2.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
+
+        enemyFish = new TextureRegion(texture2, 26, 87, 207, 85);
+        enemyFish.flip(false, true);
+
+        enemyFish2 = new TextureRegion(texture2, 281, 87, 207, 85);
+        enemyFish2.flip(false, true);
+
+        enemyFish3 = new TextureRegion(texture2, 536, 87, 207, 85);
+        enemyFish3.flip(false, true);
+
+        enemyFish4 = new TextureRegion(texture2, 797, 87, 207, 85);
+        enemyFish4.flip(false, true);
+
+        TextureRegion[] enemyfishes = {enemyFish, enemyFish2, enemyFish3, enemyFish4};
+        enemyfishAnimation = new Animation(0.06f, enemyfishes);
+        enemyfishAnimation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
+
+        //Left Facing
+
+        enemyFishLeft = new TextureRegion(texture2, 26, 87, 207, 85);
+        enemyFishLeft.flip(true, true);
+
+        enemyFish2Left = new TextureRegion(texture2, 281, 87, 207, 85);
+        enemyFish2Left.flip(true, true);
+
+        enemyFish3Left = new TextureRegion(texture2, 536, 87, 207, 85);
+        enemyFish3Left.flip(true, true);
+
+        enemyFish4Left = new TextureRegion(texture2, 797, 87, 207, 85);
+        enemyFish4Left.flip(true, true);
+
+        TextureRegion[] enemyfishesLeft = {enemyFishLeft, enemyFish2Left, enemyFish3Left, enemyFish4Left};
+        enemyfishAnimationFaceLeft = new Animation(0.06f, enemyfishesLeft);
+        enemyfishAnimationFaceLeft.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
+
+        //end fish textures
 
         dead = Gdx.audio.newSound(Gdx.files.internal("data/dead.wav"));
         ambience = Gdx.audio.newMusic(Gdx.files.internal("data/590422_Dreamology.mp3"));
